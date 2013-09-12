@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+  - name: nmap install
+    yum: name=nmap state=latest
+
