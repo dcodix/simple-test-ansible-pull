@@ -2,4 +2,6 @@
   tasks:
   - name: nmap install
     yum: name=nmap state=latest
+  - name: install telnet
+    yum: name=telnet state=latest
 
