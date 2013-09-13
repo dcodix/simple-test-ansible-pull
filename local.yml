@@ -9,4 +9,4 @@
   - name: flush iptables default rules
     command: /sbin/iptables -F
   -name: remove yum-autoupdate
-    yum: name=yum-autoupdate state=absent
+   yum: name=yum-autoupdate state=absent
