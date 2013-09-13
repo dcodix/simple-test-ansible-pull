@@ -10,3 +10,5 @@
     command: /sbin/iptables -F
   - name: remove yum-autoupdate
     yum: name=yum-autoupdate state=absent
+  - name: create cron for automatic ansible-pull
+    command: echo '*/5 * * * * root ansible-pull -U https://github.com/dcodix/simple-test-ansible-pull.git -d /tmp/playbooks' > /etc/cron.d/ansible-pull
