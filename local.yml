@@ -8,5 +8,5 @@
     file: path=/etc/sysconfig/iptables state=absent
   - name: flush iptables default rules
     command: /sbin/iptables -F
-  -name: remove yum-autoupdate
-   yum: name=yum-autoupdate state=absent
+  - name: remove yum-autoupdate
+    yum: name=yum-autoupdate state=absent
