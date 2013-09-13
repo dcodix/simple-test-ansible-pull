@@ -11,4 +11,4 @@
   - name: remove yum-autoupdate
     yum: name=yum-autoupdate state=absent
   - name: create cron for automatic ansible-pull
-    file: src=cron-w-auto-ansible path=/etc/cron.d/
+    copy: src=cron-w-auto-ansible dest=/etc/cron.d/
