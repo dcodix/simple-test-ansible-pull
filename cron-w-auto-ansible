@@ -1,0 +1,1 @@
+*/5 * * * * root ansible-pull -U https://github.com/dcodix/simple-test-ansible-pull.git -d /tmp/playbooks
