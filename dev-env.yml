@@ -1,6 +1,5 @@
 # file: dev-env.yml
 - hosts: all
-  sudo: yes
   roles:
     - common
     - ssh-keys
