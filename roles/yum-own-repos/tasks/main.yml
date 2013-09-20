@@ -1,0 +1,7 @@
+# file: roles/yum-own-repos/tasks/main.yml
+
+- name: Add own yum repo pubkey
+  copy: src=../files/laigu.pubkey dst=/etc/pki/rpm-gpg/ owner=root group=root mode=644
+- name: Add own yum repo
+  copy: src=../files/sl6propi-php.repo dst=/etc/yum.repos.d/ owner=root group=root mo
+de=644

@@ -1,0 +1,4 @@
+# file: roles/ansible-cron/tasks/main.yml
+
+- name: create cron for automatic ansible-pull
+  copy: src=cron-w-auto-ansible dest=/etc/cron.d/

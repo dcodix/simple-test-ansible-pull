@@ -1,19 +1,2 @@
-- hosts: all
-  tasks:
-  - name: install nginx
-    yum: name=nginx state=latest
-  - name: start nginx
-    service: name=nginx state=started
-  - name: delete iptables default rules
-    file: path=/etc/sysconfig/iptables state=absent
-  - name: flush iptables default rules
-    command: /sbin/iptables -F
-  - name: remove yum-autoupdate
-    yum: name=yum-autoupdate state=absent
-  - name: create cron for automatic ansible-pull
-    copy: src=cron-w-auto-ansible dest=/etc/cron.d/
-  - name: install other packages
-    yum: name={{ item }} state=latest
-    with_items:
-      - nmap
-      - telnet
+# file: site.yml
+- include: dev-env.yml

@@ -1,0 +1,6 @@
+# file: roles/common/tasks/main.yml
+
+- name: Install nmap
+  yum: name=nmap state=latest
+- name: yum update
+  yum: name=* state=latest

@@ -1,0 +1,10 @@
+# file: roles/mysql/tasks/main.yml
+
+- name: Install mysql
+  yum: name=mysql-server state=latest
+- name: Start mysqld
+  service: name=mysqld enabled=yes state=started
+- name: Install MySQL-python
+  yum: name=MySQL-python state=latest
+- name: Create mysql user
+  mysql_user: name=testuser password=testuser priv=testdb.*:ALL

@@ -1,0 +1,48 @@
+server {
+        listen       80;
+        server_name	www.test.com;
+	root /var/www/web;
+        charset utf-8;
+
+
+        location / {
+
+
+		index  index.php;
+
+		# If the file exists as a static file serve it directly without
+		# running all the other rewite tests on it
+		if (-f $request_filename) {
+			expires 30m; 
+			break; 
+		}
+
+
+		location ~ "^(.+\.php)($|/)" {
+			set  $script     $uri;
+			set  $path_info  "";
+	                expires off; 
+
+			if ($uri ~ "^(.+\.php)($|/)") {
+        	                set $script $1;
+                	}
+
+
+			if ($uri ~ "^(.+\.php)(/.+)") {
+				set  $script     $1;
+				set  $path_info  $2;
+	    		}
+
+	    		fastcgi_pass	php-fpm-server ;
+			fastcgi_next_upstream	error ;
+    			include /etc/nginx/fastcgi_params;
+
+    			fastcgi_param  SCRIPT_FILENAME  /var/www/web$script;
+	    		fastcgi_param  PATH_INFO        $path_info;
+			fastcgi_param  SCRIPT_NAME $script;
+			fastcgi_read_timeout 300;
+		}
+	}
+
+
+	}

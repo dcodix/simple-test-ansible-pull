@@ -1,0 +1,6 @@
+# file: roles/redis/tasks/main.yml
+
+- name: Flush iptables rules
+  command: /sbin/iptables -F
+- name: Copy iptables default
+  copy: src=../files/iptables dest=/etc/sysconfig/ owner=root group=root mode=600

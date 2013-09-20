@@ -1,0 +1,4 @@
+# file: roles/nginx/tasks/main.yml
+
+- name: Create log directory test
+  file: name=/var/log/test owner=nobody group=nobody mode=666 state=directory

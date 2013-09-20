@@ -1,0 +1,22 @@
+# file: roles/php-fpm/tasks/main.yml
+
+- name: Install php-fpm
+  yum: name=php-fpm state=latest
+- name: Install ImageMagick
+  yum: name=ImageMagick state=latest
+- name: Install phpmyadmin
+  yum: name=phpmyadmin state=latest
+- name: Install php-pecl-xdebug
+  yum: name=php-pecl-xdebug state=latest
+- name: Copy php.ini
+  copy: src=../files/php.ini dest=/etc/ owner=root group=root mode=644
+- name: Copy php-fpm.conf
+  copy: src=../files/php-fpm.conf dest=/etc/ owner=root group=root mode=644
+- name: Create php-fpm.d directory
+  file: name=/etc/php-fpm.d owner=root group=root mode=644 state=directory
+- name: Copy www.conf
+  copy: src=../files/www.conf dest=/etc/php-fpm.d/ owner=root group=root mode=644
+- name: Copy xdebug.ini
+  copy: src=../files/xdebug.ini dest=/etc/php.d/ owner=root group=root mode=644
+- name: Start and enable php-fpm
+  service: name=php-fpm enabled=yes state=started

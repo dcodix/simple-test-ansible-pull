@@ -1,0 +1,8 @@
+# file: roles/ssh-keys/tasks/main.yml
+
+- name: Create .ssh directory
+  file: path=/home/vagrant/.ssh owner=vagrant group=vagrant mode=700 state=directory
+- name: Copy pubkey
+  copy: src=../files/id_rsa.pub dest=/home/vagrant/.ssh/ owner=vagrant group=vagrant mode=644
+- name: Copy privkey
+  copy: src=../files/id_rsa dest=/home/vagrant/.ssh/ owner=vagrant group=vagrant mode=600

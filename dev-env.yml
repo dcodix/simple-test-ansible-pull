@@ -1,0 +1,14 @@
+# file: dev-env.yml
+- hosts: all
+  sudo: yes
+  roles:
+    - common
+    - ssh-keys
+    - dev-packages
+    - nginx
+    - mysql
+    - php-fpm
+    - redis
+    - iptables
+    - prepare-project
+    - ansible-cron

@@ -1,0 +1,6 @@
+# file: roles/redis/tasks/main.yml
+
+- name: Install redis
+  yum: name=redis state=latest
+- name: Start and enable redis
+  service: name=redis enabled=yes state=started
