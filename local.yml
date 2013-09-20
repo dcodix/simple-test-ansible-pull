@@ -1,3 +1,2 @@
 # file: site.yml
-- hosts: all
-  include: dev-env.yml
+- include: dev-env.yml
