@@ -1,17 +1,17 @@
 # file: roles/dev-packages/tasks/main.yml
 
 - name: Install basic packages
-#  shell: yum install -y vim-enhanced curl git java-1.7.0-openjdk make diffutils man policycoreutils htmldoc
-  yum: pkg={{ item }} state=latest
-  with_items:
-    - vim-enhanced
-    - curl
-    - git
-    - java-1.7.0-openjdk
-    - make
-    - diffutils
-    - man
-    - policycoreutils
-    - htmldoc
+  shell: yum install -y vim-enhanced curl git java-1.7.0-openjdk make diffutils man policycoreutils htmldoc
+#  yum: pkg={{ item }} state=latest
+#  with_items:
+#    - vim-enhanced
+#    - curl
+#    - git
+#    - java-1.7.0-openjdk
+#    - make
+#    - diffutils
+#    - man
+#    - policycoreutils
+#    - htmldoc
   tags:
     - dev-packages

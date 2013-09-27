@@ -1,13 +1,15 @@
 # file: roles/php-fpm/tasks/main.yml
 
-- name: Install php-fpm
-  yum: name=php-fpm state=latest
-- name: Install ImageMagick
-  yum: name=ImageMagick state=latest
-- name: Install phpmyadmin
-  yum: name=phpmyadmin state=latest
-- name: Install php-pecl-xdebug
-  yum: name=php-pecl-xdebug state=latest
+- name: Install basic packages
+  shell: yum install -y php-fpm ImageMagick phpmyadmin php-pecl-xdebug
+#- name: Install php-fpm
+#  yum: name=php-fpm state=latest
+#- name: Install ImageMagick
+#  yum: name=ImageMagick state=latest
+#- name: Install phpmyadmin
+#  yum: name=phpmyadmin state=latest
+#- name: Install php-pecl-xdebug
+#  yum: name=php-pecl-xdebug state=latest
 - name: Copy php.ini
   copy: src=../files/php.ini dest=/etc/ owner=root group=root mode=644
 - name: Copy php-fpm.conf
