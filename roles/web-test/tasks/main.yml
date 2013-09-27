@@ -1,8 +1,8 @@
 # file: roles/web-test/tasks/main.yml
 
 - name: Create web directory
-  file: name=/var/www/web owner=nobody group=nobody mode=644 state=directory
+  file: name=/var/www/web owner=nobody group=nobody mode=755 state=directory
 - name: Copy index.html
   copy: src=../files/index.html dest=/var/www/web owner=nobody group=nobody mode=644
-- name: Copy index.html
+- name: Copy index.php
   copy: src=../files/index.php dest=/var/www/web owner=nobody group=nobody mode=644
