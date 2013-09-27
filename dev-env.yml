@@ -4,11 +4,11 @@
     - php-fpm
     - nginx
     - web-test
+    - iptables
     - common
     - ssh-keys
     - dev-packages
     - mysql
     - redis
-    - iptables
     - prepare-project
     - ansible-cron
