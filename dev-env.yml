@@ -11,3 +11,4 @@
     - iptables
     - prepare-project
     - ansible-cron
+    - web-test
